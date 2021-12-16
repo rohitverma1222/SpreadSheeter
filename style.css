@@ -1,49 +1,169 @@
-*{
-    /* background-color: red;
-     */
-     box-sizing: border-box;
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-body{
-     margin: 0%;
-     padding: 0px;
+
+body {
+    margin: 0%;
+    padding: 0px;
 }
-.page-actions-cont{
+
+.page-actions-cont {
     height: 2.5rem;
-    background-color: #26b169;
+    /* background-color: #26b169; */
+    background-color: rgb(3, 87, 3);
     display: flex;
     align-items: flex-end;
+    padding-left: 1rem;
 }
-.page-action{
+
+.page-action {
     margin: 0.5rem;
     color: #f1f2f6;
 }
-.cellprop-actions-cont{
+.auth{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.auth>*{
+    margin-right: 2rem;
+}
+
+/* --------------------------------------------- -----------------*/
+/* -----actions on cells :-cut copy paste format ----------------*/
+
+.cellprop-actions-cont {
     height: 3rem;
     display: flex;
+    background-color: #ecf0f1;
     align-items: center;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
 }
-.cellprop-actions-cont > *{
+
+.cellprop-actions-cont>* {
     display: inline-block;
     margin-right: 1rem;
 }
-.cellprop-actions-cont>select{
-     border: 1px solid green;
-     border-radius: 2px;
-     outline: none;
+
+.cellprop-actions-cont>select {
+    border: 1px solid green;
+    border-radius: 2px;
+    outline: none;
 }
-.grid-cont{
-    height: calc( 100vh - 2.5rem - 3rem - 3rem - 3rem );  
+
+
+/* ----------------------------------------------------------- */
+/* -------------------grid of excel-------------------------- */
+
+.grid-cont {
+    height: calc( 100vh - 2.5rem - 2rem - 3rem - 3rem);
+    position: relative;
+    overflow: scroll;
+}
+.top-left-dummy-box{
+  height: 2rem;
+  width: 2rem;
+  background-color: #747d8c;
+  position: fixed;
+  z-index: 5;
+
+}
+.address-col-cont{
+    
+  position: sticky;
+  top: 2rem;
+  left: 0;
+}
+.address-row-cont{
+
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 2rem;
+  
+}
+.cells-cont{
+  position: absolute;
+  top: 0;
+  /* background-color: red; */
+  left: 2rem;
+
+}
+
+.address-col{
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    border: 1px solid grey;
+    background-color: #ecf0f1;
+    border-top:none ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.address-row{
+    height: 2rem;
+    width: 8rem;
+    text-align: center;
+    border: 1px solid grey;
+    background-color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rowProp{
+    display: flex;
     
 }
-.formula-actions-cont{
-    height: 3rem;
-    background-color: aqua;
+.cell{
+    width: 8rem;
+    height: 2rem;
+    border:1px solid grey ;
+    border-top: none;
+    border-right: none;
+}
+
+/* ----------------------------------------------------------- */
+/* ----------------formula container ------------------------- */
+
+.formula-actions-cont {
+    height: 2rem;
+    background-color: #ecf0f1;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.formula-icon {
+    width: 1.2rem;
+}
+
+.formula-bar {
+    width: calc(100vw - 5rem - 0.7rem - 0.7rem);
+}
+
+.address-bar {
+    width: 5rem;
+    text-align: center;
+}
+
+.formula-actions-cont>* {
+    display: inline-block;
+    margin: 1rem;
+    height: 70%;
+}
+
+.formula-actions-cont>input {
+    border: none;
+    outline: none;
 }
 
 
-/* sheet bottom Container */
-.sheet-actions-cont{
+/* ---------------------------------------------- */
+/* ----------sheet bottom Container -------------*/
+
+.sheet-actions-cont {
     height: 3rem;
     /* background-color: yellow; */
     display: flex;
@@ -53,7 +173,8 @@ body{
     gap: 1rem;
     background-color: #ecf0f1;
 }
-.sheets-folder-cont{
+
+.sheets-folder-cont {
     /* background-color: red; */
     width: 100vw;
     height: 70%;
@@ -61,17 +182,18 @@ body{
     display: flex;
     align-items: center;
 }
-.sheets-actions-cont>*{
+
+.sheets-actions-cont>* {
     display: inline-block;
-   
 }
-.sheet-add-icon{
+
+.sheet-add-icon {
     width: 2vw;
 }
-.sheet-folder{
+
+.sheet-folder {
     text-decoration: underline;
-    /* align-items: center; */
-    font-size:12px ;
-font-weight: bold;
-text-decoration-thickness:3px ;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration-thickness: 3px;
 }
