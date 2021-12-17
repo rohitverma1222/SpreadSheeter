@@ -15,6 +15,7 @@ body {
     display: flex;
     align-items: flex-end;
     padding-left: 1rem;
+    /* color: lightgrey; */
 }
 
 .page-action {
@@ -65,7 +66,10 @@ body {
     height: 100%;
     width: 100%;
 }
-
+/* styling on icons */
+.material-icons{
+    border-radius: 3px ;
+}
 
 /* ----------------------------------------------------------- */
 /* -------------------grid of excel-------------------------- */

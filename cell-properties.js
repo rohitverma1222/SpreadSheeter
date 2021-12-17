@@ -45,7 +45,7 @@ let centerAlignment = alignment[1];
 let rightAlignment = alignment[2];
 
 //color variable
-let activeColorprop = "#d1d8e0";
+let activeColorprop = "grey";
 let inactivecolorprop = "#ecf0f1";
 
 
@@ -154,30 +154,88 @@ alignment.forEach((alignElement) => {
         let address = AddressInputbar.value;
         let [cell, cellprop] = activeCell(address);
 
-        let alignValue=event.target.classList[0];
-        cellprop.alignment=alignValue;
-        cell.style.textAlign=cellprop.alignment;
+        let alignValue = event.target.classList[0];
+        cellprop.alignment = alignValue;
+        cell.style.textAlign = cellprop.alignment;
 
-        switch(alignValue){
+        switch (alignValue) {
             case "left":
-                leftAlignment.style.backgroundColor=activeColorprop;
-                centerAlignment.style.backgroundColor=inactivecolorprop;
-                rightAlignment.style.backgroundColor=inactivecolorprop;
+                leftAlignment.style.backgroundColor = activeColorprop;
+                centerAlignment.style.backgroundColor = inactivecolorprop;
+                rightAlignment.style.backgroundColor = inactivecolorprop;
                 break;
             case "right":
-                leftAlignment.style.backgroundColor=inactivecolorprop;
-                centerAlignment.style.backgroundColor=inactivecolorprop;
-                rightAlignment.style.backgroundColor=activeColorprop;
+                leftAlignment.style.backgroundColor = inactivecolorprop;
+                centerAlignment.style.backgroundColor = inactivecolorprop;
+                rightAlignment.style.backgroundColor = activeColorprop;
                 break;
             case "center":
-                leftAlignment.style.backgroundColor=inactivecolorprop;
-                centerAlignment.style.backgroundColor=activeColorprop;
-                rightAlignment.style.backgroundColor=inactivecolorprop;
+                leftAlignment.style.backgroundColor = inactivecolorprop;
+                centerAlignment.style.backgroundColor = activeColorprop;
+                rightAlignment.style.backgroundColor = inactivecolorprop;
                 break;
 
         }
     })
 })
+
+
+
+
+//Need of Two way Binding 
+//if we click on something on a cell and 
+// we use some action button then it will not removed when we click on different cell 
+let allCells = document.querySelectorAll(".cell");
+for (let i = 0; i < allCells.length; i++) {
+    addListenerToAttachCellProperties(allCells[i]);
+}
+
+function addListenerToAttachCellProperties(cell) {
+    cell.addEventListener("click", (event) => {
+        let address = AddressInputbar.value;
+        let [rowId, columnID] = decodeRowIdColumnIDFromAddress(address);
+        let cellprop = sheetDB[rowId][columnID];
+        // console.log(cellprop);
+
+        cell.style.fontWeight = cellprop.bold ? "bold" : "normal"; //UI Change
+        cell.style.fontStyle = cellprop.italic ? "italic" : "normal";
+        cell.style.textDecoration = cellprop.underline ? "underline" : "normal";
+        cell.style.fontSize = cellprop.fontsize + "px";
+        cell.style.color = cellprop.fontcolor;
+        cell.style.backgroundColor = cellprop.backgColor ==="#000000" ?"transparent":cellprop.backgColor;
+        cell.style.textAlign = cellprop.alignment;
+       
+        //apply properties on Grid cell
+        bold.style.backgroundColor = cellprop.bold ? activeColorprop : inactivecolorprop;
+        italic.style.backgroundColor = cellprop.italic ? activeColorprop : inactivecolorprop;
+        underline.style.backgroundColor = cellprop.underline ? activeColorprop : inactivecolorprop;
+        fontcolor.value = cellprop.fontcolor;
+        bgcolor.value = cellprop.backgColor;
+        fontsize.value = cellprop.fontFamily;
+        
+        switch (cellprop.alignment) {
+            case "left":
+                leftAlignment.style.backgroundColor = activeColorprop;
+                centerAlignment.style.backgroundColor = inactivecolorprop;
+                rightAlignment.style.backgroundColor = inactivecolorprop;
+                break;
+            case "right":
+                leftAlignment.style.backgroundColor = inactivecolorprop;
+                centerAlignment.style.backgroundColor = inactivecolorprop;
+                rightAlignment.style.backgroundColor = activeColorprop;
+                break;
+            case "center":
+                leftAlignment.style.backgroundColor = inactivecolorprop;
+                centerAlignment.style.backgroundColor = activeColorprop;
+                rightAlignment.style.backgroundColor = inactivecolorprop;
+                break;
+        }
+    })
+}
+
+
+
+
 
 function activeCell(address) {
     //decode the address in row and coloumn number form
@@ -189,7 +247,6 @@ function activeCell(address) {
     let cellProp = sheetDB[rowid][columnid];
     return [cell, cellProp];
 }
-
 
 
 function decodeRowIdColumnIDFromAddress(address) {
