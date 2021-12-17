@@ -41,8 +41,15 @@ for(let i=0;i<rows;i++)
     {
         let cell=document.createElement("div");
         cell.setAttribute("class","cell");
-        cell.setAttribute("contenteditable","true")
+        cell.setAttribute("contenteditable","true");
+
+        //Attributes for cell and Storage identification
+        cell.setAttribute("rowId",i);
+        cell.setAttribute("columnId",j);
+        cell.setAttribute("spellcheck","false");
+
         rowContainer.appendChild(cell);
+
         //Display address of column and row in Address-bar Input
         EventListenerForAddressBarDisplay(cell,i,j);
     }
@@ -59,3 +66,9 @@ function EventListenerForAddressBarDisplay(cell,i,j)
         AddressInputbar.value=ColumnID+rowID;
     })
 }
+
+//By default click on first cell 
+//when the site reload it doesnt point to null so we point by default 
+//to first cell of grid
+let firstCellofGrid=document.querySelector(".cell");
+firstCellofGrid.click(); 

@@ -45,11 +45,25 @@ body {
     display: inline-block;
     margin-right: 1rem;
 }
-
+.cellprop-actions-cont> *:hover{
+    
+    cursor: pointer;
+}
 .cellprop-actions-cont>select {
     border: 1px solid green;
     border-radius: 2px;
     outline: none;
+}
+.color-prop{
+    position: relative;
+}
+.color-prop>input{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 
