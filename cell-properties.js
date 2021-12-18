@@ -119,7 +119,7 @@ fontfamily.addEventListener("change", (event) => {
 
     cellprop.fontFamily = fontfamily.value;   //Data change
     cell.style.fontFamily = cellprop.fontFamily; //UI Change
-    fontsize.value = cellprop.fontFamily;
+    fontfamily.value = cellprop.fontFamily;
 
 })
 
@@ -148,6 +148,7 @@ bgcolor.addEventListener("change", (event) => {
 
 })
 
+//there are 3 types of alignment if any of one is applied other should be inactive
 alignment.forEach((alignElement) => {
     alignElement.addEventListener("click", (event) => {
         //fetch the address of grid cell
@@ -155,8 +156,10 @@ alignment.forEach((alignElement) => {
         let [cell, cellprop] = activeCell(address);
 
         let alignValue = event.target.classList[0];
+
         cellprop.alignment = alignValue;
         cell.style.textAlign = cellprop.alignment;
+        //active the applied alignment and inactive the other two
 
         switch (alignValue) {
             case "left":
@@ -193,15 +196,19 @@ for (let i = 0; i < allCells.length; i++) {
 function addListenerToAttachCellProperties(cell) {
     cell.addEventListener("click", (event) => {
         let address = AddressInputbar.value;
+        //if user click on a cell then fetch his row and column
         let [rowId, columnID] = decodeRowIdColumnIDFromAddress(address);
-        let cellprop = sheetDB[rowId][columnID];
-        // console.log(cellprop);
 
+        //and access that object 
+        let cellprop = sheetDB[rowId][columnID];
+
+        //fetch the Cell properties from object
         cell.style.fontWeight = cellprop.bold ? "bold" : "normal"; //UI Change
         cell.style.fontStyle = cellprop.italic ? "italic" : "normal";
         cell.style.textDecoration = cellprop.underline ? "underline" : "normal";
         cell.style.fontSize = cellprop.fontsize + "px";
         cell.style.color = cellprop.fontcolor;
+        cell.style.fontFamily = cellprop.fontFamily;
         cell.style.backgroundColor = cellprop.backgColor ==="#000000" ?"transparent":cellprop.backgColor;
         cell.style.textAlign = cellprop.alignment;
        
@@ -211,8 +218,8 @@ function addListenerToAttachCellProperties(cell) {
         underline.style.backgroundColor = cellprop.underline ? activeColorprop : inactivecolorprop;
         fontcolor.value = cellprop.fontcolor;
         bgcolor.value = cellprop.backgColor;
-        fontsize.value = cellprop.fontFamily;
-        
+        fontsize.value = cellprop.fontsize;
+        fontfamily.value = cellprop.fontFamily;
         switch (cellprop.alignment) {
             case "left":
                 leftAlignment.style.backgroundColor = activeColorprop;
@@ -259,7 +266,6 @@ function decodeRowIdColumnIDFromAddress(address) {
     // "A" is fetched from "A1" and we have to convert it 
     // character to integer
     let columnId = Number(address.charCodeAt(0)) - 65;
-    console.log([rowid, columnId]);
 
     return [rowid, columnId];
 }
