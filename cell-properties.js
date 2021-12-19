@@ -19,6 +19,9 @@ for (let i = 0; i < rows; i++) {
             fontsize: "12",
             fontcolor: "#000000",
             backgColor: "#000000",
+            //To apply formula on a specific cell with that same cell value
+            value:"",
+            formula:"",
         }
 
         sheetRow.push(cellprop)
@@ -56,7 +59,7 @@ let inactivecolorprop = "#ecf0f1";
 bold.addEventListener("click", (event) => {
     //fetch the address of grid cell
     let address = AddressInputbar.value;
-    let [cell, cellprop] = activeCell(address);
+    let [cell, cellprop] = getCellandCellprop(address);
 
     // Modification of object property according to the grid Cell
 
@@ -71,7 +74,7 @@ bold.addEventListener("click", (event) => {
 italic.addEventListener("click", (event) => {
     //fetch the address of grid cell
     let address = AddressInputbar.value;
-    let [cell, cellprop] = activeCell(address);
+    let [cell, cellprop] = getCellandCellprop(address);
 
     // Modification of object property according to the grid Cell
 
@@ -86,7 +89,7 @@ italic.addEventListener("click", (event) => {
 underline.addEventListener("click", (event) => {
     //fetch the address of grid cell
     let address = AddressInputbar.value;
-    let [cell, cellprop] = activeCell(address);
+    let [cell, cellprop] = getCellandCellprop(address);
 
     // Modification of object property according to the grid Cell
 
@@ -100,7 +103,7 @@ underline.addEventListener("click", (event) => {
 fontsize.addEventListener("change", (event) => {
     //fetch the address of grid cell
     let address = AddressInputbar.value;
-    let [cell, cellprop] = activeCell(address);
+    let [cell, cellprop] = getCellandCellprop(address);
 
     // Modification of object property according to the grid Cell
 
@@ -113,7 +116,7 @@ fontsize.addEventListener("change", (event) => {
 fontfamily.addEventListener("change", (event) => {
     //fetch the address of grid cell
     let address = AddressInputbar.value;
-    let [cell, cellprop] = activeCell(address);
+    let [cell, cellprop] = getCellandCellprop(address);
 
     // Modification of object property according to the grid Cell
 
@@ -126,7 +129,7 @@ fontfamily.addEventListener("change", (event) => {
 fontcolor.addEventListener("change", (event) => {
     //fetch the address of grid cell
     let address = AddressInputbar.value;
-    let [cell, cellprop] = activeCell(address);
+    let [cell, cellprop] = getCellandCellprop(address);
 
     // Modification of object property according to the grid Cell
 
@@ -138,7 +141,7 @@ fontcolor.addEventListener("change", (event) => {
 bgcolor.addEventListener("change", (event) => {
     //fetch the address of grid cell
     let address = AddressInputbar.value;
-    let [cell, cellprop] = activeCell(address);
+    let [cell, cellprop] = getCellandCellprop(address);
 
     // Modification of object property according to the grid Cell
 
@@ -153,7 +156,7 @@ alignment.forEach((alignElement) => {
     alignElement.addEventListener("click", (event) => {
         //fetch the address of grid cell
         let address = AddressInputbar.value;
-        let [cell, cellprop] = activeCell(address);
+        let [cell, cellprop] = getCellandCellprop(address);
 
         let alignValue = event.target.classList[0];
 
@@ -244,7 +247,7 @@ function addListenerToAttachCellProperties(cell) {
 
 
 
-function activeCell(address) {
+function getCellandCellprop(address) {
     //decode the address in row and coloumn number form
     let [rowid, columnid] = decodeRowIdColumnIDFromAddress(address);
     //access cell for storage purpose
