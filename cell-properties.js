@@ -20,8 +20,12 @@ for (let i = 0; i < rows; i++) {
             fontcolor: "#000000",
             backgColor: "#000000",
             //To apply formula on a specific cell with that same cell value
-            value:"",
-            formula:"",
+            //get the value of cell
+            value: "",
+            formula: "",
+            //for parent and children relationship
+            //store the childrens
+            children: [],
         }
 
         sheetRow.push(cellprop)
@@ -212,9 +216,9 @@ function addListenerToAttachCellProperties(cell) {
         cell.style.fontSize = cellprop.fontsize + "px";
         cell.style.color = cellprop.fontcolor;
         cell.style.fontFamily = cellprop.fontFamily;
-        cell.style.backgroundColor = cellprop.backgColor ==="#000000" ?"transparent":cellprop.backgColor;
+        cell.style.backgroundColor = cellprop.backgColor === "#000000" ? "transparent" : cellprop.backgColor;
         cell.style.textAlign = cellprop.alignment;
-       
+
         //apply properties on Grid cell
         bold.style.backgroundColor = cellprop.bold ? activeColorprop : inactivecolorprop;
         italic.style.backgroundColor = cellprop.italic ? activeColorprop : inactivecolorprop;
@@ -240,6 +244,10 @@ function addListenerToAttachCellProperties(cell) {
                 rightAlignment.style.backgroundColor = inactivecolorprop;
                 break;
         }
+        let formulaBar = document.querySelector(".formula-bar");
+        formulaBar.value = cellprop.formula;
+        cell.value = cellprop.formula;
+
     })
 }
 
