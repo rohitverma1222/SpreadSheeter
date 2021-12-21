@@ -11,13 +11,13 @@ for (let i = 0; i < rows; i++) {
             let [activecell, cellprop] = getCellandCellprop(address);
             let EnteredValue = activecell.innerText;
 
-            if(EnteredValue===cellprop.value)
-            return;
+            if (EnteredValue === cellprop.value)
+                return;
 
             cellprop.value = EnteredValue;
-
+            // Hardcoring the value  
             removeChildFromparent(cellprop.formula);
-            cellprop.formula="";
+            cellprop.formula = "";
             updateChildrenCells(address);
         })
     }
@@ -41,35 +41,78 @@ formulaBar.addEventListener("keydown", (Event) => {
 
         if (inputFormula !== cellProp.formula)
             removeChildFromparent(cellProp.formula);
-
+        
+        addChildCelltoGraphComponent(inputFormula,address);
+        //check formula is cyclic or not
+        let isCyclic=isGraphCyclic(graphComponentMatrix);
+        if(isCyclic)
+        {
+            alert('Cycle has been detected'+"\n"+'please change your formula');
+            removeChildCellfromGraphComponent(inputFormula,address);
+            return;
+        }
         let evalutedValue = evaluteFormula(inputFormula);
 
         //to update UI and cellprop in db
-        setCellUIandCellprop(evalutedValue, inputFormula,address);
+        setCellUIandCellprop(evalutedValue, inputFormula, address);
         addChildToParent(inputFormula);
         // console.log(sheetDB);
         updateChildrenCells(address)
     }
 })
 
+
+//adding child component rowid and columnid in array format 
+//because we are using graph algo so to traverse from one Cell to another 
+//we need the rowId and columnid of child Cell 
+function addChildCelltoGraphComponent(formula, childAddress) {
+    let [childrowID, childColumnID] = decodeRowIdColumnIDFromAddress(childAddress);
+    let encodedFormula = formula.split(" ");
+    for (let i = 0; i < encodedFormula.length; i++) {
+        let isAsciiValue = encodedFormula[i].charCodeAt(0);
+        if (isAsciiValue >= 65 && isAsciiValue <= 90) {
+            let [parentRowID, parentColumnID] = decodeRowIdColumnIDFromAddress(encodedFormula[i]);
+            // console.log( parentRowID+" "+pare);
+
+            //B1:A1+10
+            //rowID->i,column->j
+            //pushing child id in decodeformat in a 2d array
+            graphComponentMatrix[parentRowID][parentColumnID].push([childrowID,childColumnID])
+        }
+    }
+}
+
+
+function removeChildCellfromGraphComponent(formula,childAddress)
+{
+    let encodedFormula = formula.split(" ");
+    for (let i = 0; i < encodedFormula.length; i++) {
+        let isAsciiValue = encodedFormula[i].charCodeAt(0);
+        if (isAsciiValue >= 65 && isAsciiValue <= 90) {
+            let [parentRowID, parentColumnID] = decodeRowIdColumnIDFromAddress(encodedFormula[i]);
+            //remove the last element because the last cell create the cycle 
+            graphComponentMatrix[parentRowID][parentColumnID].pop();
+        }
+    }
+}
+
+
 //let suppose if there is a C cell which depend upon B cell
 // and B cell is depended upon A cell if you change value of A 
 // then the changes must be reflect of Cell B,C 
 // to reflect the value on change we need parent and children relationship
 // if we change parent then we also have to change the children value as well
-function updateChildrenCells(parentAddress)
-{
-    let [parentcell,parentcellprop]=getCellandCellprop(parentAddress);
-    let children=parentcellprop.children;
+function updateChildrenCells(parentAddress) {
+    let [parentcell, parentcellprop] = getCellandCellprop(parentAddress);
+    let children = parentcellprop.children;
 
-    for(let i=0;i<children.length;i++)
-    {
-        let childAddress=children[i];
-        let [childcell,childCellprop]=getCellandCellprop(childAddress);
-        let childFormula=childCellprop.formula;
+    for (let i = 0; i < children.length; i++) {
+        let childAddress = children[i];
+        let [childcell, childCellprop] = getCellandCellprop(childAddress);
+        let childFormula = childCellprop.formula;
 
-        let evalutedValue=evaluteFormula(childFormula);
-        setCellUIandCellprop(evalutedValue,childFormula,childAddress);
+        let evalutedValue = evaluteFormula(childFormula);
+        setCellUIandCellprop(evalutedValue, childFormula, childAddress);
         //Recursion appears
         //if children has children then also update the children 
         //A->b and B->C if we change A then also change C.
@@ -101,8 +144,8 @@ function removeChildFromparent(formula) {
         let isAsciiValue = encodedFormula[i].charCodeAt(0);
         if (isAsciiValue >= 65 && isAsciiValue <= 90) {
             let [parentcell, parentcellprop] = getCellandCellprop(encodedFormula[i]);
-            let IndexOfChildrenTobeRemoved=parentcellprop.children.indexOf(childAddress);
-            parentcellprop.children.splice(IndexOfChildrenTobeRemoved,1);
+            let IndexOfChildrenTobeRemoved = parentcellprop.children.indexOf(childAddress);
+            parentcellprop.children.splice(IndexOfChildrenTobeRemoved, 1);
         }
     }
 }
@@ -125,7 +168,7 @@ function evaluteFormula(formula) {
     return eval(decodedFormula);
 }
 
-function setCellUIandCellprop(evalutedValue, inputFormula,address) {
+function setCellUIandCellprop(evalutedValue, inputFormula, address) {
     // let address = AddressInputbar.value;
     let [cell, cellprop] = getCellandCellprop(address);
 

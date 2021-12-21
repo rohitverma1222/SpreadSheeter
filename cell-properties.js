@@ -246,7 +246,7 @@ function addListenerToAttachCellProperties(cell) {
         }
         let formulaBar = document.querySelector(".formula-bar");
         formulaBar.value = cellprop.formula;
-        cell.value = cellprop.formula;
+        cell.value = cellprop.value;
 
     })
 }
