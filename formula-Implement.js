@@ -29,7 +29,7 @@ for (let i = 0; i < rows; i++) {
 //2.Expression formula which include row and column address
 
 let formulaBar = document.querySelector(".formula-bar");
-formulaBar.addEventListener("keydown", (Event) => {
+formulaBar.addEventListener("keydown", async (Event) => {
     let inputFormula = formulaBar.value;
 
     //if user press enter and formula value if not empty then evalute on this formula
@@ -41,14 +41,18 @@ formulaBar.addEventListener("keydown", (Event) => {
 
         if (inputFormula !== cellProp.formula)
             removeChildFromparent(cellProp.formula);
-        
-        addChildCelltoGraphComponent(inputFormula,address);
+
+        addChildCelltoGraphComponent(inputFormula, address);
         //check formula is cyclic or not
-        let isCyclic=isGraphCyclic(graphComponentMatrix);
-        if(isCyclic)
-        {
-            alert('Cycle has been detected'+"\n"+'please change your formula');
-            removeChildCellfromGraphComponent(inputFormula,address);
+        let CycleResponse = isGraphCyclic(graphComponentMatrix);
+        if (CycleResponse) {
+            //if response is true then trace it and again show the confirm message untill user get satisfied
+            let response = confirm("Your formula is Cyclic,Do you want to trace It");
+            while (response) {
+                await graphCycleTracePath(graphComponentMatrix,CycleResponse);
+                response = confirm("Your formula is Cyclic,Do you want to trace It");
+            }
+            removeChildCellfromGraphComponent(inputFormula);
             return;
         }
         let evalutedValue = evaluteFormula(inputFormula);
@@ -77,14 +81,13 @@ function addChildCelltoGraphComponent(formula, childAddress) {
             //B1:A1+10
             //rowID->i,column->j
             //pushing child id in decodeformat in a 2d array
-            graphComponentMatrix[parentRowID][parentColumnID].push([childrowID,childColumnID])
+            graphComponentMatrix[parentRowID][parentColumnID].push([childrowID, childColumnID])
         }
     }
 }
 
 
-function removeChildCellfromGraphComponent(formula,childAddress)
-{
+function removeChildCellfromGraphComponent(formula) {
     let encodedFormula = formula.split(" ");
     for (let i = 0; i < encodedFormula.length; i++) {
         let isAsciiValue = encodedFormula[i].charCodeAt(0);
@@ -169,7 +172,7 @@ function evaluteFormula(formula) {
 }
 
 function setCellUIandCellprop(evalutedValue, inputFormula, address) {
-    // let address = AddressInputbar.value;
+
     let [cell, cellprop] = getCellandCellprop(address);
 
     //UI update

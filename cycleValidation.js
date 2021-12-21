@@ -1,3 +1,4 @@
+//Work on graph algorithm to check cycle 
 let graphComponentMatrix = [];
 
 for (let i = 0; i < rows; i++) {
@@ -8,7 +9,7 @@ for (let i = 0; i < rows; i++) {
     graphComponentMatrix.push(row);
 }
 
-// True ->cyclic ,false->Not cyclic
+
 function isGraphCyclic(graphComponentMatrix) {
     //Dependency-> visited,DFsVisted(2D array)
     let visited = [];
@@ -28,11 +29,11 @@ function isGraphCyclic(graphComponentMatrix) {
         for (let j = 0; j < column; j++) {
             if (visited[i][j] == false) {
                 if (dfsCycleDetection(graphComponentMatrix, i, j, visited, dfsvisited))
-                    return true;
+                    return [i,j];
             }
         }
     }
-    return false;
+    return null;
 }
 
 //start -> visited=true and dfsvisted=true
@@ -44,6 +45,8 @@ function dfsCycleDetection(graphComponentMatrix, srcRow, srcColumn, visited, dfs
 
     for (let children = 0; children < graphComponentMatrix[srcRow][srcColumn].length; children++) {
         let [childRowID, childColumnID] = graphComponentMatrix[srcRow][srcColumn][children];
+        // console.log(childRowID+""+childColumnID);
+
         if (visited[childRowID][childColumnID] ==false) {
             let response = dfsCycleDetection(graphComponentMatrix, childRowID, childColumnID, visited, dfsVisited);
             if (response)

@@ -15,8 +15,8 @@ for (let i = 0; i < rows; i++) {
             italic: false,
             underline: false,
             alignment: "left",
-            fontFamily: "monospace",
-            fontsize: "12",
+            fontFamily: "san-serif",
+            fontsize: "14",
             fontcolor: "#000000",
             backgColor: "#000000",
             //To apply formula on a specific cell with that same cell value
