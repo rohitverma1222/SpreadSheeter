@@ -199,6 +199,7 @@ body {
     display: inline-block;
     display: flex;
     align-items: center;
+    overflow: auto;
 }
 
 .sheets-actions-cont>* {
@@ -207,11 +208,26 @@ body {
 
 .sheet-add-icon {
     width: 2vw;
+    
 }
-
+.sheet-add-icon:hover{
+    cursor: pointer;
+}
 .sheet-folder {
+    height: 80%;
     text-decoration: underline;
     font-size: 0.9rem;
     font-weight: bold;
     text-decoration-thickness: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.sheet-content{
+    width: 5rem;
+}
+.sheet-content:hover{
+    cursor: pointer;
 }

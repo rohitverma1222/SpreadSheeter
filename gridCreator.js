@@ -67,8 +67,3 @@ function EventListenerForAddressBarDisplay(cell,i,j)
     })
 }
 
-//By default click on first cell 
-//when the site reload it doesnt point to null so we point by default 
-//to first cell of grid
-let firstCellofGrid=document.querySelector(".cell");
-firstCellofGrid.click(); 

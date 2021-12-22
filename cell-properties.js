@@ -1,39 +1,46 @@
 //storage
 //create a array of array so we can store key_values like bold,underline of each row's column
+
+let collectedSheetDB=[];
 let sheetDB = [];
 
-//Using object to store all of the value of each cell and each cell has an object 
-for (let i = 0; i < rows; i++) {
-
-    //create an array of objects 
-    //store the value of cell in a row
-    let sheetRow = [];
-
-    for (let j = 0; j < column; j++) {
-        let cellprop = {
-            bold: false,
-            italic: false,
-            underline: false,
-            alignment: "left",
-            fontFamily: "san-serif",
-            fontsize: "14",
-            fontcolor: "#000000",
-            backgColor: "#000000",
-            //To apply formula on a specific cell with that same cell value
-            //get the value of cell
-            value: "",
-            formula: "",
-            //for parent and children relationship
-            //store the childrens
-            children: [],
-        }
-
-        sheetRow.push(cellprop)
-    }
-
-    //each row is added to the sheetDB
-    sheetDB.push(sheetRow);
+{
+    let addSheetbutton=document.querySelector(".sheet-add-icon")
+    addSheetbutton.click();
 }
+
+// //Using object to store all of the value of each cell and each cell has an object 
+// for (let i = 0; i < rows; i++) {
+
+//     //create an array of objects 
+//     //store the value of cell in a row
+//     let sheetRow = [];
+
+//     for (let j = 0; j < column; j++) {
+//         let cellprop = {
+//             bold: false,
+//             italic: false,
+//             underline: false,
+//             alignment: "left",
+//             fontFamily: "san-serif",
+//             fontsize: "14",
+//             fontcolor: "#000000",
+//             backgColor: "#000000",
+//             //To apply formula on a specific cell with that same cell value
+//             //get the value of cell
+//             value: "",
+//             formula: "",
+//             //for parent and children relationship
+//             //store the childrens
+//             children: [],
+//         }
+
+//         sheetRow.push(cellprop)
+//     }
+
+//     //each row is added to the sheetDB
+//     sheetDB.push(sheetRow);
+// }
 
 
 //Selector for cell Properties
@@ -205,7 +212,7 @@ function addListenerToAttachCellProperties(cell) {
         let address = AddressInputbar.value;
         //if user click on a cell then fetch his row and column
         let [rowId, columnID] = decodeRowIdColumnIDFromAddress(address);
-
+        
         //and access that object 
         let cellprop = sheetDB[rowId][columnID];
 
@@ -246,7 +253,7 @@ function addListenerToAttachCellProperties(cell) {
         }
         let formulaBar = document.querySelector(".formula-bar");
         formulaBar.value = cellprop.formula;
-        cell.value = cellprop.value;
+        cell.innerText = cellprop.value;
 
     })
 }
