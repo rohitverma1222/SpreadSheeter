@@ -13,7 +13,8 @@ body {
     /* background-color: #26b169; */
     background-color: rgb(3, 87, 3);
     display: flex;
-    align-items: flex-end;
+    /* justify-content: center; */
+    /* align-items: flex-end; */
     padding-left: 1rem;
     /* color: lightgrey; */
 }
@@ -21,6 +22,15 @@ body {
 .page-action {
     margin: 0.5rem;
     color: #f1f2f6;
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-action:hover{
+    cursor: pointer;
 }
 .auth{
     width: 100%;
@@ -30,7 +40,10 @@ body {
 .auth>*{
     margin-right: 2rem;
 }
-
+.selected{
+    background-color: #ecf0f1;
+    color: rgb(3, 87, 3);
+}
 /* --------------------------------------------- -----------------*/
 /* -----actions on cells :-cut copy paste format ----------------*/
 
