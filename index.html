@@ -23,14 +23,32 @@
 
 <body>
     <div class="page-actions-cont">
-        <div class="page-action selected ">Home</div>
-        <div class="page-action">File</div>
-        <div class="page-action">Insert</div>
-        <div class="page-action">Layout</div>
-        <div class="page-action">help</div>
+        <div class="page-action selected home"><span class="material-icons space">
+            home
+        </span></div>
+        <div class="page-action selected dropdown file selected-default">File
+            <div class="dropdown-content">
+                <a href="#" class="selected ">New FIle</a>
+                <a href="#" class="selected ">Open</a>
+                <a href="#" class="selected ">Save</a>
+                <a href="#" class="selected ">Save as</a>
+
+              </div>
+        </div>
+        <div class="page-action selected insert open">Insert
+            <span class="material-icons space">
+                upload
+            </span></div>
+        <div class="page-action selected layout download">Download 
+            <span class="material-icons space">
+            download
+        </span></div>
+        <div class="page-action selected help">Help
+            
+        </div>
         <div class="auth">
-            <div class="page-action">Login</div>
-            <div class="page-action">Register</div>
+            <div class="page-action login selected">Sign In</div>
+            <div class="page-action register selected selected-default">Sign up</div>
         </div>
     </div>
     <div class="cellprop-actions-cont">
@@ -41,7 +59,7 @@
         <span class="material-icons paste">
             content_paste
         </span>
-        
+
         <select class="font-family-prop">
             <option value="monospace">monospace</option>
             <option value="arial">Arial</option>
@@ -55,7 +73,7 @@
             <option value="14">14</option>
             <option value="16">16</option>
             <option value="18">18</option>
-            
+
         </select>
         <span class="material-icons bold">
             format_bold
@@ -77,24 +95,25 @@
         </span>
 
         <div class="color-prop">
-        <span class="material-icons">
-            format_color_text
-        </span>
-        <input type="color" class="font-color-prop">
+            <span class="material-icons">
+                format_color_text
+            </span>
+            <input type="color" class="font-color-prop">
         </div>
 
         <div class="color-prop">
             <span class="material-icons">
                 format_color_fill
             </span>
-            <input type="color" class="bg-color-prop" >
+            <input type="color" class="bg-color-prop">
         </div>
-        <span class="material-icons download">
-            cloud_download
-        </span>
-        <span class="material-icons open">
+        <span class="material-icons space">
             cloud_upload
         </span>
+        <span class="material-icons space">
+            cloud_download
+        </span>
+       
 
     </div>
 
@@ -117,7 +136,7 @@
             </span>
         </div>
         <div class="sheets-folder-cont">
-            
+
         </div>
     </div>
 
@@ -133,5 +152,8 @@
 <script src="JS/formula-Implement.js"></script>
 <script src="JS/CopyPaste.js"></script>
 <script src="JS/openSave.js"></script>
+<script src="JS/Page-action.js"></script>
+
+</script>
 
 </html>
