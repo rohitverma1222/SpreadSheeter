@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,13 +19,13 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="CSS/dash.css">
+    <link rel="stylesheet" href="{% static 'CSS/dash.css' %}">
 </head>
 
 <body>
     <header class="page-header" >
         <div class="left-logo">
-            <img src="images/sheet.png" alt="" class="logo">
+            <img src="{% static 'images/sheet.png' %}" alt="" class="logo">
             <h2>EXCEL</h2>
         </div>
 
@@ -35,7 +36,7 @@
             </span>
         </div>
         <div class="user">
-            <img src="images/photos.jpg" alt="" class="user-photo">
+            <img src="{% static 'images/photos.jpg' %}" alt="" class="user-photo">
         </div>
     </header>
     <section class="templates-section">
@@ -46,34 +47,35 @@
             <div class="doc-files">
                 <div class="cover">
                     <div class="doc-card-view">
-                        <img src="images/blank.png" alt="">
+                        <img src="{% static 'images/blank.png' %}" alt="">
+                        <a href="/"></a>
                     </div>
                     <p>Blank</p>
                 </div>
                 <div class="cover">
                     <div class="doc-card-view">
-                        <img src="images/res.png" alt="">
+                        <img src="{% static 'images/res.png' %}" alt="">
                     </div>
                     <p>Resume</p>
                 </div>
                 
                 <div class="cover">
                     <div class="doc-card-view">
-                        <img src="images/letter.png" alt="">
+                        <img src="{% static 'images/letter.png' %}" alt="">
                     </div>
                     <p>Letter</p>
                 </div>
                 
                 <div class="cover">
                     <div class="doc-card-view">
-                        <img src="images/resume.png" alt="">
+                        <img src="{% static 'images/resume.png' %}" alt="">
                     </div>
                     <p>Resume</p>
                 </div>
                 
                 <div class="cover">
                     <div class="doc-card-view">
-                        <img src="images/project.png" alt="">
+                        <img src="{% static 'images/project.png' %}" alt="">
                     </div>
                     <p>Project</p>
                 </div>
@@ -130,5 +132,5 @@
 
     </div>
 </body>
-<script src="JS/DashBoard-Design.js"></script>
+<script src="{% static 'JS/DashBoard-Design.js' %}"></script>
 </html>

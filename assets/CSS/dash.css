@@ -1,0 +1,144 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.page-header{
+    height: 4rem;
+    display: flex;
+    /* border: 1px solid red; */
+    position: sticky;
+    top: 0;
+    background-color: white;
+    outline: none;
+    /* box-shadow: 1px 1px rgb(228, 217, 217); */
+    /* box-shadow: 0px 1px 10px #999; */
+}
+.floatingNav {
+    /* width: calc(100vh - 100px);  */
+    border-radius: 2px;
+    box-shadow: 0px 1px 10px #999;
+  }
+  
+.left-logo{
+    display: flex;
+    width: 20%;
+    /* border: 1px solid red; */
+    
+}
+.left-logo>*{
+    height: 2.5rem;
+    
+}
+.logo{
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+}
+h2{
+    margin-left:2rem ;
+    margin-top: 0.7rem;
+}
+
+.search{
+    width: calc(100vw - 20% - 20%);
+    /* border:1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-input{
+    height: 3rem;
+    width: 60%;
+    background-color: rgb(201, 190, 190);
+    outline: none;
+    border-radius: 1rem;
+    border: none;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    font-size: 18px;
+}
+
+.search-input:hover{
+    margin-top: 0.5rem;
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: 1px;
+}
+
+.user{
+    float: right;
+    width: 20%;
+    /* border: 1px solid red; */
+}
+.user>*{
+    height: 3rem;
+    float: right;
+    margin-top:0.5rem;
+    margin-right: 2rem;
+}
+.user-photo{
+    border-radius: 5rem;
+}
+
+
+/* templates section */
+.templates-section{
+    /* border: 1px solid red; */
+    height: 22rem;
+    margin-top: 1rem;
+    background-color: rgba(202, 192, 192, 0.267);
+    display: flex;
+    justify-content: center;
+}
+.temp-container{
+    /* border: 1px solid red; */
+    width: 65%;
+}
+.new-doc{
+    /* border: 1px solid red; */
+    margin: 1rem;
+}
+.doc-files{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap:wrap;
+}
+.cover{
+    width: 13%;
+    height: 16rem;
+    /* border: 1px solid red; */
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    text-align: center;
+}
+.doc-card-view
+{
+    border:0.001rem solid rgb(138, 138, 138) ;
+    height:13rem;
+    width: 100%;
+    background-color: white;
+
+}
+.doc-card-view img{
+    height: calc(16rem - 4rem);
+}
+.doc-card-view:hover{
+    border:0.005rem solid rgb(47, 154, 255)
+}
+
+
+/* container your all files */
+.recent-doc{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+}
+.container{
+    height: 150vh;
+    width: 65%;
+    /* border: 1px solid blue; */
+}

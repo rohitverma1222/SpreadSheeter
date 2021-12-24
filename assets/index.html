@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+</head>
+
+<body>
+    <div class="page-actions-cont">
+        <div class="page-action selected home"><span class="material-icons space">
+            home
+        </span></div>
+        <div class="page-action selected dropdown file selected-default">File
+            <div class="dropdown-content">
+                <a href="#" class="selected ">New File</a>
+                <a href="#" class="selected ">Open</a>
+                <a href="#" class="selected ">Save</a>
+                <a href="#" class="selected ">Save as</a>
+
+              </div>
+        </div>
+        <div class="page-action selected insert open">Insert
+            <span class="material-icons space">
+                upload
+            </span></div>
+        <div class="page-action selected layout download">Download 
+            <span class="material-icons space">
+            download
+        </span></div>
+        <div class="page-action selected help">Help
+            
+        </div>
+        <div class="auth">
+            <div class="page-action login selected">Sign In</div>
+            <div class="page-action register selected selected-default">Sign up</div>
+        </div>
+    </div>
+    <div class="cellprop-actions-cont">
+        <span class="material-icons copy">content_copy</span>
+        <span class="material-icons cut">
+            content_cut
+        </span>
+        <span class="material-icons paste">
+            content_paste
+        </span>
+
+        <select class="font-family-prop">
+            <option value="monospace">monospace</option>
+            <option value="arial">Arial</option>
+            <option value="Times-new-roman">Times New Roman</option>
+            <option value="san-serif">san-serif</option>
+            <option value="fantasy">fantasy</option>
+            <option value="cursive">cursive</option>
+        </select>
+        <select class="font-size-prop">
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="18">18</option>
+
+        </select>
+        <span class="material-icons bold">
+            format_bold
+        </span>
+        <span class="material-icons italic">
+            format_italic
+        </span>
+        <span class="material-icons underline">
+            format_underlined
+        </span>
+        <span class="left material-icons alignment">
+            format_align_left
+        </span>
+        <span class="center material-icons alignment">
+            format_align_center
+        </span>
+        <span class="right material-icons alignment">
+            format_align_right
+        </span>
+
+        <div class="color-prop">
+            <span class="material-icons">
+                format_color_text
+            </span>
+            <input type="color" class="font-color-prop">
+        </div>
+
+        <div class="color-prop">
+            <span class="material-icons">
+                format_color_fill
+            </span>
+            <input type="color" class="bg-color-prop">
+        </div>
+        <span class="material-icons space">
+            cloud_upload
+        </span>
+        <span class="material-icons space">
+            cloud_download
+        </span>
+       
+
+    </div>
+
+    <div class="formula-actions-cont">
+        <input type="text" readonly class="address-bar">
+        <img class="formula-icon" src="https://img.icons8.com/ios/50/000000/formula-fx.png" />
+        <input type="text" placeholder="Enter value with space separated" class="formula-bar">
+    </div>
+    <div class="grid-cont">
+        <div class="top-left-dummy-box"></div>
+        <div class="address-col-cont"></div>
+        <div class="cells-cont">
+            <div class="address-row-cont"></div>
+        </div>
+    </div>
+    <div class="sheet-actions-cont">
+        <div class="sheet-add-icon">
+            <span class="material-icons">
+                post_add
+            </span>
+        </div>
+        <div class="sheets-folder-cont">
+
+        </div>
+    </div>
+
+</body>
+<script src="{% static 'JS/gridCreator.js' %}"></script>
+<script src="{% static 'JS/cycleValidation.js' %}"></script>
+
+<script src="{% static 'JS/SheetHandling.js' %}"></script>
+
+<script src="{% static 'JS/cell-properties.js' %}"></script>
+
+<script src="{% static 'JS/CyclicTracePath.js' %}"></script>
+<script src="{% static 'ent.js' %}"></script>
+<script src="{% static 'JS/CopyPaste.js' %}"></script>
+<script src="{% static 'JS/openSave.js' %}"></script>
+<!-- <script src="{% static 'js"></script> -->
+
+</script>
+
+</html>

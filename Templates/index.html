@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
 </head>
 
 <body>
@@ -141,18 +142,18 @@
     </div>
 
 </body>
-<script src="JS/gridCreator.js"></script>
-<script src="JS/cycleValidation.js"></script>
+<script src="{% static 'JS/gridCreator.js' %}"></script>
+<script src="{% static 'JS/cycleValidation.js' %}"></script>
 
-<script src="JS/SheetHandling.js"></script>
+<script src="{% static 'JS/SheetHandling.js' %}"></script>
 
-<script src="JS/cell-properties.js"></script>
+<script src="{% static 'JS/cell-properties.js' %}"></script>
 
-<script src="JS/CyclicTracePath.js"></script>
-<script src="JS/formula-Implement.js"></script>
-<script src="JS/CopyPaste.js"></script>
-<script src="JS/openSave.js"></script>
-<script src="JS/Page-action.js"></script>
+<script src="{% static 'JS/CyclicTracePath.js' %}"></script>
+<script src="{% static 'ent.js' %}"></script>
+<script src="{% static 'JS/CopyPaste.js' %}"></script>
+<script src="{% static 'JS/openSave.js' %}"></script>
+<!-- <script src="{% static 'js"></script> -->
 
 </script>
 
