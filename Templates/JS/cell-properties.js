@@ -1,3 +1,4 @@
+console.log("cell")
 //storage
 //create a array of array so we can store key_values like bold,underline of each row's column
 
@@ -286,4 +287,32 @@ function decodeRowIdColumnIDFromAddress(address) {
     let columnId = Number(address.charCodeAt(0)) - 65;
 
     return [rowid, columnId];
+}
+
+
+let data=document.getElementById("jsondata").value;
+    // console.log(data);
+    if(data.length>1)
+        fileopen()
+
+function fileopen()
+{
+        // let fr = new FileReader();
+        // let files = data;
+        // let fileObj = files[0];
+        // fr.readAsText(fileObj);
+        // fr.addEventListener("load", (Event) => {
+            let readSheetData = JSON.parse(data);
+
+            //basic sheet with default data will be be created
+
+            addSheetbtn.click();
+
+            //sheetDB,graphComponent
+            sheetDB = readSheetData[0];
+            graphComponentMatrix = readSheetData[1];
+            collectedSheetDB[collectedSheetDB.length - 1] = sheetDB;
+            collectedGraphComponent[graphComponentMatrix.length - 1] = graphComponentMatrix;
+            handleSheetProperties();
+        // })
 }

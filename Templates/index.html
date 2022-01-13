@@ -18,39 +18,163 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
 </head>
 
 <body>
     <div class="page-actions-cont">
-        <div class="page-action selected home"><span class="material-icons space">
-            home
-        </span></div>
+        <div class="page-action selected home" onclick="window.location='/account/user/dashboard/'">
+            <span class="material-icons space">
+                home
+            </span>
+        </div>
         <div class="page-action selected dropdown file selected-default">File
             <div class="dropdown-content">
-                <a href="#" class="selected ">New File</a>
-                <a href="#" class="selected ">Open</a>
-                <a href="#" class="selected ">Save</a>
-                <a href="#" class="selected ">Save as</a>
+                <a  class="change" data-toggle="modal" data-target="#exampleModalCenter">New File</a>
+                <a class="change" onclick="window.location='/account/user/dashboard/'">Open</a>
+                <a class="change" id="save_btn">Save</a>
+                <!--no pop up menu for save/----- -->
+                <a  class="change save-as" data-toggle="modal" data-target="#exampleModalCenter2">Save as</a>
 
-              </div>
+            </div>
         </div>
-        <div class="page-action selected insert open">Insert
+        <!-- Model for New File -->
+        <form action="/" method="post" >{% csrf_token %}
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-body">
+                                <form action="/file" method="post">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">File Name:</label>
+                                        <input type="text" class="form-control" name="fudu" id="recipient-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">File Type:</label>
+                                        <div class="input-group mb-3">
+    
+                                            <select class="custom-select" id="inputGroupSelect03">
+                                                <option value="newfile">New File</option>
+    
+                                            </select>
+                                        </div>
+    
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    
+                            <button type="submit" class="btn btn-primary">
+                                open</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Model for save as feature -->
+        <form method="post" >{% csrf_token %}
+            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-body">
+                                <form action="/file" method="post">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">File Name:</label>
+                                        <input type="text" class="form-control saveas-name"  id="recipient-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">File Type:</label>
+                                        <div class="input-group mb-3">
+    
+                                            <select class="custom-select" id="inputGroupSelect03">
+                                                <option value="newfile">New File</option>
+    
+                                            </select>
+                                        </div>
+    
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    
+                            <button type="submit" class="btn btn-secondary sub" data-dismiss="modal">
+                                open</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    
+
+
+
+        <div class="page-action selected insert open">
+            <input id="jsondata" value="{{data}}" style="display:none;">
+            Insert
             <span class="material-icons space">
                 upload
-            </span></div>
-        <div class="page-action selected layout download">Download 
+            </span>
+        </div>
+        <!-- Download file -->
+        <div class="page-action selected layout download">Download
             <span class="material-icons space">
-            download
-        </span></div>
-        <div class="page-action selected help">Help
-            
+                download
+            </span>
         </div>
+        <!-- Help -->
+        <div class="page-action selected help" onclick="window.location='/help'">Help
+        </div>
+        <!-- file Name -->
+        <div class="again" id="finame">{{NameOfFile}}</div>
+        <div class="FileId" style="display:none">{{IDs}}</div>
+
+        <!-- authentication -->
+        {% if user.is_authenticated %}
         <div class="auth">
-            <div class="page-action login selected">Sign In</div>
-            <div class="page-action register selected selected-default">Sign up</div>
+            <a href="/account/user/dashboard">
+                <div class="page-action user-text selected selected-default">{{user.first_name}}</div>
+            </a>
+            <a href="/account/logout">
+                <div class="page-action logout selected selected-default">Logout</div>
+            </a>
         </div>
+        {% else %}
+        <div class="auth">
+
+            <a href="account/login">
+                <div class="page-action login selected">
+                    Sign In
+                </div>
+            </a>
+            <a href="account/register">
+                <div class="page-action register selected selected-default">Sign up</div>
+            </a>
+        </div>
+        {% endif %}  
     </div>
     <div class="cellprop-actions-cont">
         <span class="material-icons copy">content_copy</span>
@@ -114,8 +238,6 @@
         <span class="material-icons space">
             cloud_download
         </span>
-       
-
     </div>
 
     <div class="formula-actions-cont">
@@ -142,6 +264,19 @@
     </div>
 
 </body>
+<script>
+
+</script>
+
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+<!-- Jquery -->
 <script src="{% static 'JS/gridCreator.js' %}"></script>
 <script src="{% static 'JS/cycleValidation.js' %}"></script>
 
@@ -150,11 +285,19 @@
 <script src="{% static 'JS/cell-properties.js' %}"></script>
 
 <script src="{% static 'JS/CyclicTracePath.js' %}"></script>
-<script src="{% static 'ent.js' %}"></script>
+<script src="{% static 'JS/formula-Implement.js' %}"></script>
 <script src="{% static 'JS/CopyPaste.js' %}"></script>
-<script src="{% static 'JS/openSave.js' %}"></script>
-<!-- <script src="{% static 'js"></script> -->
 
-</script>
+<script src="{% static 'JS/openSave.js' %}"></script>
+
+
+<!-- BOOTSTRAP 4 CDN -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
 </html>

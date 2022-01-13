@@ -1,5 +1,5 @@
 //Work On formula bar 
-
+console.log("formula");
 //accessing all the cells to set the value in cellprop object
 for (let i = 0; i < rows; i++) {
     for (let j = 0; j < column; j++) {

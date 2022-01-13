@@ -33,7 +33,7 @@ body {
     cursor: pointer;
 }
 .auth{
-    width: 100%;
+    /*width: 100%;*/
     display: flex;
     justify-content: flex-end;
 }
@@ -48,7 +48,11 @@ body {
     background-position: top;
     transition: background-position 0.2s ease-in-out; /** I've changed the time for demo purposes **/
     color: white;
+    text-decoration: none;
 
+}
+.login:link{
+    text-decoration: none;
 }
 .selected:hover{
   background-position: bottom;
@@ -62,6 +66,19 @@ body {
 .space{
     margin-left: 0.3rem;
    
+}
+/*file name style*/
+.again{ 
+    /*background-color: white;*/
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 900;
+    text-decoration: underline;
+
 }
 .dropdown {
     position: relative;
@@ -91,6 +108,7 @@ body {
   .dropdown:hover .dropdown-content {display: block;}
   
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 
 /* --------------------------------------------- -----------------*/
 /* -----actions on cells :-cut copy paste format ----------------*/
@@ -292,4 +310,14 @@ body {
 }
 .sheet-content:hover{
     cursor: pointer;
+}
+a {
+  text-decoration: none !important;
+}
+.user-text .logout{
+    text-decoration: none;
+}
+.change:hover{
+    color: white !important;
+    background-color: green !important;
 }
