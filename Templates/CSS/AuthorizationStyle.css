@@ -146,7 +146,7 @@ body {
 }
 .auth-btn:hover,
 .auth-btn:focus {
-  background: #007eff;
+  background: #4da949;
 }
 .auth-bottom {
   display: flex;
