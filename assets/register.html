@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REGISTERATION</title>
+  <link rel="stylesheet" href="{% static 'CSS/AuthorizationStyle.css' %}">
+</head>
+<body>
+  <div class="auth">
+    <div class="auth-container">
+      <div class="auth-logo">
+        <!-- <img src="{% static 'images/sheet.png' %}" /> -->
+      </div>
+      <form action="register" method="post" class="auth-form"> {% csrf_token %}
+        <h1>Sign up</h1>
+        <div class="auth-input ">
+            <label for="email">
+              Name
+            </label>
+            <input type="text" name="fullname" id="fullname" />
+            <!-- <p class="auth-error">E-Mail is a required field.</p> -->
+          </div>
+        <div class="auth-input ">
+            <label for="email">
+              Username
+            </label>
+            <input type="text" name="username" id="username" />
+            <!-- <p class="auth-error">E-Mail is a required field.</p> -->
+          </div>
+        <div class="auth-input ">
+          <label for="email">
+            E-Mail
+          </label>
+          <input type="email" name="email" id="email" />
+          <!-- <p class="auth-error">E-Mail is a required field.</p> -->
+        </div>
+        <div class="auth-input">
+          <label for="password">
+            Password
+          </label>
+          <input type="password" name="password1" id="password" />
+        </div>
+        <div class="auth-input">
+          <label for="password">
+            Confirm Password
+          </label>
+          <input type="password" name="password2" id="password" />
+        </div>
+        <!-- <a href="#" class="auth-reset">Forgot Password?</a> -->
+        <button type="submit" name="submit" class="auth-btn">Sign Up</button>
+      </form>
+      <div class="auth-bottom">
+        <a href="login">Sign IN</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

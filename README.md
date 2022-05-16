@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./Templates/images/logo.png">
+  <img src="./Templates/images/logo.png" style="border-radius:5rem">
   &#xa0;
 
   <a href="https://excel.netlify.app"></a>
@@ -30,14 +30,18 @@ A spreadsheet Application which allows users to organize, format and calculate d
 
 <hr> -->
 
-<p align="center">
-  <a href="#about">About</a> &#xa0; | &#xa0; 
-  <a href="#features">Features</a> &#xa0; | &#xa0;
-  <a href="#requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
-</p>
+ - <a href="#about">About</a>
+
+ - <a href="#features">Features</a> 
+ 
+ - <a href="#requirements">Requirements</a>
+ 
+ - <a href="#cstarting">Getting Starting</a> 
+ 
+ - <a href="#memo-license">License</a>
+
+ - <a href="https://github.com/rohitverma1222" target="_blank">Author</a>
+
 
 <br>
 
@@ -56,12 +60,17 @@ user-info and System-file database
 
 ## Features ##
 
--
-
+- Multiple spreadsheet Application which allows users to organize, format and calculate data with formulas
+- Import and Download file 
+- Authentication System
+- Dashboard show All the file of logged in User
+- Easy to perform changes in Spreadsheet files
+- User can search file in dashBoard
 
 ## Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :you need to have [Git](https://git-scm.com) and [Python](https://www.python.org/downloads/) installed.
+
 
 ## Getting Starting ##
 
