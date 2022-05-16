@@ -31,7 +31,9 @@
                 home
             </span>
         </div>
+       
         <div class="page-action selected dropdown file selected-default">File
+            {% if user.is_authenticated %}
             <div class="dropdown-content">
                 <a  class="change" data-toggle="modal" data-target="#exampleModalCenter">New File</a>
                 <a class="change" onclick="window.location='/account/user/dashboard/'">Open</a>
@@ -40,7 +42,9 @@
                 <a  class="change save-as" data-toggle="modal" data-target="#exampleModalCenter2">Save as</a>
 
             </div>
-        </div>
+        {% else %}
+                                {% endif %}
+                                </div>
         <!-- Model for New File -->
         <form action="/" method="post" >{% csrf_token %}
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -53,12 +57,14 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        
                         <div class="modal-body">
                             <div class="modal-body">
+                                
                                 <form action="/file" method="post">
                                     <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">File Name:</label>
-                                        <input type="text" class="form-control" name="fudu" id="recipient-name">
+                                        <input type="text" class="form-control" name="new-file-name" id="recipient-name">
                                     </div>
                                     <div class="form-group">
                                         <label for="message-text" class="col-form-label">File Type:</label>
@@ -72,8 +78,10 @@
     
                                     </div>
                                 </form>
+                                
                             </div>
                         </div>
+                        
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     
