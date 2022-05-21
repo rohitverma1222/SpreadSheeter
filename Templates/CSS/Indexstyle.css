@@ -49,7 +49,6 @@ body {
     transition: background-position 0.2s ease-in-out; /** I've changed the time for demo purposes **/
     color: white;
     text-decoration: none;
-
 }
 .login:link{
     text-decoration: none;

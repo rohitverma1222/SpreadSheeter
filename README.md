@@ -2,7 +2,7 @@
   <img src="./Templates/images/logo.png" style="border-radius:5rem">
   &#xa0;
 
-  <a href="https://excel.netlify.app"></a>
+
 </div>
 
 
@@ -19,7 +19,7 @@
 </div>
 
 <h2>
-A spreadsheet Application which allows users to organize, format and calculate data with formulas using a spreadsheet system <a href="https://excel-clone-e.herokuapp.com/">demo</a>
+A spreadsheet Application which allows users to organize, format and calculate data with formulas using a spreadsheet system <a href="https://spread-sheeter.herokuapp.com/">demo</a>
 </h2>
 
 <!-- Status -->
