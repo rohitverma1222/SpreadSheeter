@@ -22,7 +22,8 @@
 A spreadsheet Application which allows users to organize, format and calculate data with formulas using a spreadsheet system <a href="https://spread-sheeter.herokuapp.com/">demo</a>
 </h2>
 
-<!-- Status -->
+<!-- St![2022-05-22 03-53-16(1)](https://user-images.githubusercontent.com/56231634/169671265-5dd8c158-97fc-443a-9d80-76e904886128.gif)
+atus -->
 
 <!-- <h4 align="center"> 
 	🚧  Excel 🚀 Under construction...  🚧
