@@ -8,6 +8,7 @@
 
 <div style="display:flex; justify-content:center ;">
 
+
 ![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
   ![Django](https://img.shields.io/badge/-Django-333333?style=flat&logo=django)
   ![HTML5](https://img.shields.io/badge/-HTML5-333333?style=flat&logo=HTML5)
@@ -22,9 +23,15 @@
 A spreadsheet Application which allows users to organize, format and calculate data with formulas using a spreadsheet system <a href="https://spread-sheeter.herokuapp.com/">demo</a>
 </h2>
 
+<<<<<<< HEAD
 <!-- St![2022-05-22 03-53-16(1)](https://user-images.githubusercontent.com/56231634/169671265-5dd8c158-97fc-443a-9d80-76e904886128.gif)
 atus -->
 
+=======
+<!-- Status -->
+<img src="https://media.giphy.com/media/hGJeBDvi6n1b5uuHHL/giphy.gif" />
+<hr>
+>>>>>>> GIF Added
 <!-- <h4 align="center"> 
 	🚧  Excel 🚀 Under construction...  🚧
 </h4> 
@@ -41,7 +48,7 @@ atus -->
  - <a href="https://github.com/rohitverma1222" target="_blank">Author</a>
 
 
-<br>
+<hr>
  <a href="#about"></a>
 ## About ##
 
@@ -55,6 +62,7 @@ Web Framework and Database With Sqlite3
 user-info and System-file database
 
 - Used <span style="font-weight:bold">AJAX</span> for search and save file in database
+<hr>
 <a href="#features"></a>
 ## Features ##
 
@@ -64,6 +72,7 @@ user-info and System-file database
 - Dashboard show All the file of logged in User
 - Easy to perform changes in Spreadsheet files
 - User can search file in dashBoard
+<hr>
 <a href="#Contribute"></a>
 ## Contribute  ## 
 
@@ -105,7 +114,7 @@ python3 manage.py runserver (for LINUX and UBUNUTU OS)
 python manage.py runserver (for Windows)
 ```
 The demo should be up and running on http://127.0.0.1:8000/
-
+<hr>
 ## License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
