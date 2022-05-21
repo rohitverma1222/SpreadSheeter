@@ -1,11 +1,7 @@
 <div align="center" id="top"> 
   <img src="./Templates/images/logo.png" style="border-radius:5rem">
   &#xa0;
-
-
 </div>
-
-
 <div style="display:flex; justify-content:center ;">
 
 
@@ -23,25 +19,15 @@
 A spreadsheet Application which allows users to organize, format and calculate data with formulas using a spreadsheet system <a href="https://spread-sheeter.herokuapp.com/">demo</a>
 </h2>
 
-<<<<<<< HEAD
-<!-- St![2022-05-22 03-53-16(1)](https://user-images.githubusercontent.com/56231634/169671265-5dd8c158-97fc-443a-9d80-76e904886128.gif)
-atus -->
 
-=======
 <!-- Status -->
 <img src="https://media.giphy.com/media/hGJeBDvi6n1b5uuHHL/giphy.gif" />
 <hr>
->>>>>>> GIF Added
-<!-- <h4 align="center"> 
-	🚧  Excel 🚀 Under construction...  🚧
-</h4> 
-
-<hr> -->
 
 - [About](#about)
 - [Features](#features)
-- [Contribute](#contribute)
 - [Getting Starting](#getting-starting)
+- [Contribute](#contribute)
 - [License](#license)
 
 
@@ -50,6 +36,7 @@ atus -->
 
 <hr>
  <a href="#about"></a>
+
 ## About ##
 
 A spreadsheet Application which allows users to organize, format and calculate data
@@ -64,6 +51,7 @@ user-info and System-file database
 - Used <span style="font-weight:bold">AJAX</span> for search and save file in database
 <hr>
 <a href="#features"></a>
+
 ## Features ##
 
 - Multiple spreadsheet Application which allows users to organize, format and calculate data with formulas
@@ -73,13 +61,14 @@ user-info and System-file database
 - Easy to perform changes in Spreadsheet files
 - User can search file in dashBoard
 <hr>
-<a href="#Contribute"></a>
-## Contribute  ## 
+
+<a href="#cstarting"></a> 
+
+## Getting Starting ##
 
 Before starting :you need to have [Git](https://git-scm.com) and [Python](https://www.python.org/downloads/) installed.
 
-<a href="#cstarting"></a> 
-## Getting Starting ##
+
 
 1. Clone Repository
 ```bash
@@ -115,6 +104,14 @@ python manage.py runserver (for Windows)
 ```
 The demo should be up and running on http://127.0.0.1:8000/
 <hr>
+<a href="#Contribute"></a>
+
+## Contribute  ## 
+This repository is divided into two parts ,the ```templates``` folder contains all the files related to frontend and ```authentication```,```excel``` and ```user``` which is backend with django and Sqlite database.
+
+
+<hr>
+
 ## License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
