@@ -30,21 +30,18 @@ A spreadsheet Application which allows users to organize, format and calculate d
 
 <hr> -->
 
- - <a href="#about">About</a>
+- [About](#about)
+- [Features](#features)
+- [Contribute](#contribute)
+- [Getting Starting](#getting-starting)
+- [License](#license)
 
- - <a href="#features">Features</a> 
- 
- - <a href="#requirements">Requirements</a>
- 
- - <a href="#cstarting">Getting Starting</a> 
- 
- - <a href="#memo-license">License</a>
 
  - <a href="https://github.com/rohitverma1222" target="_blank">Author</a>
 
 
 <br>
-
+ <a href="#about"></a>
 ## About ##
 
 A spreadsheet Application which allows users to organize, format and calculate data
@@ -57,7 +54,7 @@ Web Framework and Database With Sqlite3
 user-info and System-file database
 
 - Used <span style="font-weight:bold">AJAX</span> for search and save file in database
-
+<a href="#features"></a>
 ## Features ##
 
 - Multiple spreadsheet Application which allows users to organize, format and calculate data with formulas
@@ -66,36 +63,54 @@ user-info and System-file database
 - Dashboard show All the file of logged in User
 - Easy to perform changes in Spreadsheet files
 - User can search file in dashBoard
-
-## Requirements ##
+<a href="#Contribute"></a>
+## Contribute  ## 
 
 Before starting :you need to have [Git](https://git-scm.com) and [Python](https://www.python.org/downloads/) installed.
 
-
+<a href="#cstarting"></a> 
 ## Getting Starting ##
 
+1. Clone Repository
 ```bash
 # Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/excel
+$ git clone https://github.com/rohitverma1222/SpreadSheeter.git
 
 # Access
-$ cd excel
-
-# Install dependencies
-$ yarn
-
-# Run the project
-$ yarn start
-
-# The server will initialize in the <http://localhost:3000>
+$ cd SpreadSheeter
+```
+2. Install a [*Python virtual environment*](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) using:
+```bash
+#create virtual enviroment
+python3.7 -m venv .venv
+```
+or:
+```bash
+virtualenv -p python3.7 .venv
 ```
 
-## :memo: License ##
+3. Activate enviroment:
+```bash
+source .venv/bin/activate
+```
+4.Intsall Dependency
+```bash
+pip install -r requirements.txt
+```
+
+After installation is successful, to run the server:
+```bash
+python3 manage.py runserver (for LINUX and UBUNUTU OS)
+python manage.py runserver (for Windows)
+```
+The demo should be up and running on http://127.0.0.1:8000/
+
+## License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/rohit1222" target="_blank">Rohit</a>
 
 &#xa0;
 

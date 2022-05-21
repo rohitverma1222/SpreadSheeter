@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib import messages
 from django.contrib.auth.models import User,auth
 # Create your views here.
 def Login_user(request):
@@ -11,7 +12,8 @@ def Login_user(request):
 			auth.login(request,user)
 			return redirect("user/dashboard")
 		else:
-			return render('login')
+			messages.warning(request, 'Please Fill correct username and Password')
+			return redirect('login')
 	else:
 		return render(request,'login.html')
 
@@ -23,22 +25,23 @@ def Register_user(request):
 		email=request.POST['email']
 		password1=request.POST['password1']
 		password2=request.POST['password2']
-		print(fullName)
-		print(username)
 
 		if User.objects.filter(username=username).exists():
 				#if username exist then show some messages
-			print("username is already exists")
+			messages.warning(request, 'Username Exist please use Another Username')
 			return render(request,'register.html')
 		if User.objects.filter(email=email).exists():
-			print("email already exists")
+			messages.warning(request, 'Email Exist please use Another Email')
 			return render(request,'register.html')
 
 		if password1==password2:
+			messages.warning(request, 'User Registration Successfully Completed please LOGIN')
 			user=User.objects.create_user(username=username,email=email,password=password1,first_name=fullName)
 			user.save();
-
-			return redirect('login');
+			return redirect('login')
+		else:
+			messages.warning(request, 'Password is Not Same please fill again')
+			return redirect('register')
 	else:
 		return render(request,'register.html')
 
